@@ -1,0 +1,6 @@
+print('------------------------------------------------------------------------')
+print('Ingrese un número en binario para convertirlo a un número normal.')
+numero_binario=input('>')
+numero_decimal=int(numero_binario,2)
+print('El número',numero_binario,'en decimal es',numero_decimal)
+print('------------------------------------------------------------------------')
