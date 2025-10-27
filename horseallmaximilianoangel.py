@@ -1,20 +1,3 @@
-# Pseudocódigo.
-'''def solucion(tablero):
-    while(hay candidtos y no solucion):
-        if(valida):
-            avanza
-            if(final):
-                solucion = True
-            else:
-                dejo pistas
-        else:
-            siguiente candidato
-            while(no hay candidatos y not inicio):
-                retroceder
-'''
-
-# Se agregó un menú para poder ver la traza, 1 solución o todas las soluciones posibles del tamaño del tablero seleccionado.
-
 # Pide el tamaño del tablero cuadrado (número de filas y columnas)
 MAX = int(input("Ingrese el número de fila y columnas que desea (Será un tablero cuadrado, tendrá la misma cantida de filas y de columnas):  \n> "))
 
@@ -22,8 +5,10 @@ MAX = int(input("Ingrese el número de fila y columnas que desea (Será un table
 while True:
     print("""
 |==============Opciones del caballo==============|
-    1.- Quiero todas las soluciones.
-    2.- Salir.
+    1.- Quiero ver la traza (Solo 1 solución).
+    2.- Quiero solo la solución.
+    3.- Todas las soluciones.
+    4.- Salir.
 |================================================|
  """)  # Imprime el menú de opciones
     
@@ -131,9 +116,15 @@ def una_solucion():
 ### Main ###
 tablero = [[0 for _ in range(MAX)] for _ in range(MAX)] # Crea el tablero (matriz) inicial lleno de ceros
 
+if seleccion == "1":
+    if solucion == 1:  # (Esta línea no tiene efecto útil: compara la función con 1) Se deja tal cual.
+        mostrar_tablero(tablero)  # Mostraría el tablero si la condición fuera verdadera (no lo será)    
+    una_solucion()
 
+elif seleccion == "2":
+    una_solucion()
 
-if seleccion == "1": # Si "seleccion" es igual a 3 ejecuta lo que esta en su interior.
+elif seleccion == "3": # Si "seleccion" es igual a 3 ejecuta lo que esta en su interior.
     solucion(tablero) # Llama la función "solucion(tablero)", con parámetro "tablero".
     if todas_soluciones:
         # Se guardan las soluciones posibles en un archivo .txt llamado "Soluciones posibles (Problema del caballo)".
@@ -148,6 +139,6 @@ if seleccion == "1": # Si "seleccion" es igual a 3 ejecuta lo que esta en su int
     else:
         print("\nNo hay soluciones posibles.\n")
 
-elif seleccion == "2":
+elif seleccion == "4":
     print("Saliendo del programa...")
 
