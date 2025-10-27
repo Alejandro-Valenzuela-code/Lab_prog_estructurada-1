@@ -1,20 +1,3 @@
-# Pseudocódigo.
-'''def solucion(tablero):
-    while(hay candidtos y no solucion):
-        if(valida):
-            avanza
-            if(final):
-                solucion = True
-            else:
-                dejo pistas
-        else:
-            siguiente candidato
-            while(no hay candidatos y not inicio):
-                retroceder
-'''
-
-# Se agregó un menú para poder ver la traza, 1 solución o todas las soluciones posibles del tamaño del tablero seleccionado.
-
 # Pide el tamaño del tablero cuadrado (número de filas y columnas)
 MAX = int(input("Ingrese el número de fila y columnas que desea (Será un tablero cuadrado, tendrá la misma cantida de filas y de columnas):  \n> "))
 
@@ -143,4 +126,5 @@ elif seleccion == "2":
 
 elif seleccion == "3":
     print("Saliendo del programa...")
+
 
