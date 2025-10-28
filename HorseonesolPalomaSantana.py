@@ -1,5 +1,5 @@
 tamaño = 5
-movimientos = [(2,1),(1,2),(-1,2),(-2,1)
+movimientos = [(2,1),(1,2),(-1,2),(-2,1),
                (-2,-1),(-1,-2),(2,-1),(1,-2)]
 
 soluciones = []
@@ -8,7 +8,7 @@ def es_valido(tablero, x, y):
     """Verificar si la posicion está dentro del tablero y libre"""
     return 0 <= x < tamaño and 0 <= y < tamaño and tablero[x][y] == 0
 
-def resolver_caballo(tablero, x, y):
+def resolver_caballo(tablero, x, y, paso):
     tablero [x] [y] = paso
     if paso == tamaño * tamaño:
         return True
@@ -34,7 +34,8 @@ def mostrar_tablero(tablero):
 #programa principal
 tablero = [ [ 0 for _ in range(tamaño)] for _ in range(tamaño)]
 
-if resolver_caballo(tablero):
+if resolver_caballo(tablero, 0, 0, 1):
     mostrar_tablero(tablero)
 else:
     print("No se encontró solución.")
+
