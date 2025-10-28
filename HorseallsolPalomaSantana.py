@@ -1,5 +1,5 @@
 tamaño = 5
-movimientos = [(2,1),(1,2),(-2,1),(-2,2),
+movimientos = [(2,1),(1,2),(-2,1),(-1,2),
                (-2,-1),(-1,-2),(1,-2),(2,-1)]
 
 soluciones = []
@@ -13,7 +13,7 @@ def encontrar_todas_soluciones(tablero, x,y, paso):
     if paso == tamaño * tamaño:
         #Guardar una copia de la solucion
         solucion = [fila[:] for fila in tablero]
-        soluciones.appened(solucion)
+        soluciones.append(solucion)
         print(f"solución {len(soluciones)} encontrada!")
     else: 
         #Probar todas las soluciones
@@ -25,10 +25,10 @@ def encontrar_todas_soluciones(tablero, x,y, paso):
     #Retroceder
     tablero[x] [y] = 0
 
-def mostrar_solucion(solucion, número):
-    print(f"\n--- Solución {número} ---")
+def mostrar_solucion(solucion, numero):
+    print(f"\n--- Solución {numero} ---")
     for fila in solucion:
-        for num in solucion:
+        for num in fila:
             print(f"{num: 3d}", end = " ")
         print()
 
@@ -44,4 +44,5 @@ print(f"\n Se encontraron {len(soluciones)} soluciones")
 if soluciones:
     for i in range(min(3, len(soluciones))):
         mostrar_solucion(soluciones[i], i + 1)
+
         
