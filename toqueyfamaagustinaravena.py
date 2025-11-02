@@ -21,8 +21,7 @@ def fama_y_toques(digitos,intento):  #modulo de fama
 
     for d in intento_restante:   #para d dentro de la lista intento restante
         if d in digitos_restantes:    #si d esta en digitos restantes, se le suma 1 toque y se borra el numero para q no se repita
-            toques += 1
-            intento_restante.remove(d)    
+            toques += 1  
 
             
 
@@ -39,6 +38,10 @@ while not adivino and intentos < maximo_intentos: #mientras no adivine y intento
     if len(intento) !=4:
         print("porfavor ingresa 4 digitos")
         continue
+    if len(set(intento)) != 4:
+        print("los numeros no pueden repetirse")
+        continue
+
     famas, toques = fama_y_toques(digitos,intento)
     adivino = fama_y_toques(digitos,intento)
     if famas == 4:
