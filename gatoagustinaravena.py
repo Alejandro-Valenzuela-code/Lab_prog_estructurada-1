@@ -1,6 +1,3 @@
-
-
-
 ''' Variables de juego '''
 victoria = False # Variable tipo Booleana (Bool) -> Verdadero (True) o Falso (False)
 jugador = "X"
@@ -94,8 +91,17 @@ while not victoria:
         victoria = True
         print("\n\nVICTORIA !!!")
 
+     # Verificar empate 
+    if not victoria:
+        lleno = True
+        for revisar_lleno in tablero:
+            if ' ' in revisar_lleno:
+                lleno = False
+                break
 
-
+        if lleno:
+            print("\n\n¡Empate! No hay más movimientos posibles.")
+            break  # Termina el juego
 
 
     print("\n\n")
@@ -112,4 +118,5 @@ while not victoria:
         jugador = "O"
     else:
         jugador = "X"
+
 
