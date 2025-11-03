@@ -90,3 +90,4 @@ if solucion(tablero):  # si se encontró solución
 else: # si no se encontró solución
     print("No hay solución")
 
+
