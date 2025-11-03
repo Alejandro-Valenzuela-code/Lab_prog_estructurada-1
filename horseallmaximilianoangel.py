@@ -1,19 +1,17 @@
 # Pide el tamaño del tablero cuadrado (número de filas y columnas)
 MAX = int(input("Ingrese el número de fila y columnas que desea (Será un tablero cuadrado, tendrá la misma cantida de filas y de columnas):  \n> "))
 
-# Muestra el menú de opciones hasta que se ingrese 1, 2, 3 o 4
+# Muestra el menú de opciones hasta que se ingrese 1 o 2
 while True:
     print("""
 |==============Opciones del caballo==============|
-    1.- Quiero ver la traza (Solo 1 solución).
-    2.- Quiero solo la solución.
-    3.- Todas las soluciones.
-    4.- Salir.
+    1.- Quiero todas las soluciones.
+    2.- Salir.
 |================================================|
  """)  # Imprime el menú de opciones
     
     seleccion = input("Ingrese la opción que desea usar:  \n> ")  # Lee la opción elegida por el usuario
-    if seleccion in ("1", "2", "3", "4"):  # Si la opción es 1, 2, 3 o 4
+    if seleccion in ("1", "2"):  # Si la opción es 1 o 2
         break  # Sale del bucle y continúa
     else:
         print("Error, opción invalida.")  # Mensaje cuando la opción no es válida
@@ -70,11 +68,9 @@ def solucion(tablero):
         if(valida(tablero, candidato, x, y)):  # Si el candidato actual es válido desde la posición x,y
             nx, ny = siguiente_posicion(tablero, candidato, x, y)  # Calcula la siguiente posición según el candidato
             tablero[nx][ny] = contador + 1  # Marca la nueva posición con el siguiente número del recorrido
-            if seleccion == "1":  # Si el usuario pidió ver la traza
-                mostrar_tablero(tablero)  # Muestra el tablero actual con la traza parcial
             if final(tablero):  # Si el tablero quedó completo (no hay ceros) 
                 todas_soluciones.append([fila[:] for fila in tablero]) # A la lista "todas_soluciones" se le agregan las soluciones encontradas.
-                if seleccion == "3":
+                if seleccion == "1":
                     mostrar_tablero(tablero)
                     tablero[nx][ny] = 0 
                 else:
@@ -93,8 +89,6 @@ def solucion(tablero):
             candidato = tablero_aux[nx][ny] + 1  # Recupera el siguiente candidato a probar desde el tablero auxiliar
             tablero_aux[nx][ny] = 0  # Limpia la marca en el tablero auxiliar
             x = nx; y = ny  # Retrocede la posición actual a nx,ny
-            if seleccion == "1":  # Si se pidió ver la traza
-                mostrar_tablero(tablero)  # Muestra el tablero durante el retroceso
 
     return solucion  # Devuelve True si encontró solución, False si no
 
@@ -106,39 +100,26 @@ def mostrar_tablero(tablero):
         print("")  # Salto de línea al terminar cada fila
     print("")  # Línea en blanco adicional para separar tableros
 
-def una_solucion():
-    if(solucion(tablero) == True):  # Llama a la función solucion(tablero) y verifica si retornó True
-        print("\nHay al menos 1 solución posible. \n")  # Mensaje de éxito si existe solución
-        mostrar_tablero(tablero)  # Muestra el tablero solución
-    else:
-        print("\nNo hay una solución posible. \n")  # Mensaje si no se encontró ninguna solución    
 
 ### Main ###
 tablero = [[0 for _ in range(MAX)] for _ in range(MAX)] # Crea el tablero (matriz) inicial lleno de ceros
 
-if seleccion == "1":
-    if solucion == 1:  # (Esta línea no tiene efecto útil: compara la función con 1) Se deja tal cual.
-        mostrar_tablero(tablero)  # Mostraría el tablero si la condición fuera verdadera (no lo será)    
-    una_solucion()
-
-elif seleccion == "2":
-    una_solucion()
-
-elif seleccion == "3": # Si "seleccion" es igual a 3 ejecuta lo que esta en su interior.
+if seleccion == "1": # Si "seleccion" es igual a 3 ejecuta lo que esta en su interior.
     solucion(tablero) # Llama la función "solucion(tablero)", con parámetro "tablero".
     if todas_soluciones:
         # Se guardan las soluciones posibles en un archivo .txt llamado "Soluciones posibles (Problema del caballo)".
         with open("Soluciones posibles (Problema del caballo).txt", "w") as f: 
-            for i, sol in enumerate(todas_soluciones, 1):
-                f.write(f"Solución N°{i}: \n")
-                for fila in sol:
-                    f.write(" ".join(f"{n:3}" for n in fila) + "\n")
-                f.write("\n")
-        print(f"\nSe encontraron {len(todas_soluciones)} soluciones y se almacenaron en [Soluciones.txt].\n")
+            for i, sol in enumerate(todas_soluciones, 1): # Recorre las soluciones encontradas y comienza un contador en 1 para ver la cantidad de soluciones encontradas.
+                f.write(f"Solución N°{i}: \n") # Escribe "Solución N°{Número de la solución}" antes de cada solución.
+                # Pasa por cada fila del tablero con solución y las va escribiendo en el archivo con un espaciado de 3 por cada dígito.
+                for fila in sol: 
+                    f.write(" ".join(f"{n:3}" for n in fila) + "\n") 
+                f.write("\n") # Agrega una fila vacía para que se separen las soluciones y sea más fácil leerlo.
+        print(f"\nSe encontraron {len(todas_soluciones)} soluciones y se almacenaron en [Soluciones.txt].\n") # Dice donde se almacenaron las soluciones y la cantidad encontrada.
 
     else:
-        print("\nNo hay soluciones posibles.\n")
+        print("\nNo hay soluciones posibles.\n") # Dice que el mensaje cuando no se cumple el "if" anterior.
 
-elif seleccion == "4":
-    print("Saliendo del programa...")
+elif seleccion == "2":
+    print("Saliendo del programa...") # Imprime el mensaje cuando "seleccion" es igual a 2.
 
