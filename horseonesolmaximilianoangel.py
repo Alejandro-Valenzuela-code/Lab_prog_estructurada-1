@@ -1,7 +1,7 @@
 # Pide el tamaño del tablero cuadrado (número de filas y columnas)
 MAX = int(input("Ingrese el número de fila y columnas que desea (Será un tablero cuadrado, tendrá la misma cantida de filas y de columnas):  \n> "))
 
-# Muestra el menú de opciones hasta que se ingrese 1, 2, 3 o 4
+# Muestra el menú de opciones hasta que se ingrese 1, 2 o 3
 while True:
     print("""
 |==============Opciones del caballo==============|
@@ -12,7 +12,7 @@ while True:
  """)  # Imprime el menú de opciones
     
     seleccion = input("Ingrese la opción que desea usar:  \n> ")  # Lee la opción elegida por el usuario
-    if seleccion in ("1", "2", "3", "4"):  # Si la opción es 1, 2, 3 o 4
+    if seleccion in ("1", "2", "3", "4"):  # Si la opción es 1, 2 o 3
         break  # Sale del bucle y continúa
     else:
         print("Error, opción invalida.")  # Mensaje cuando la opción no es válida
@@ -118,13 +118,11 @@ tablero = [[0 for _ in range(MAX)] for _ in range(MAX)] # Crea el tablero (matri
 if seleccion == "1":
     if solucion == 1:  # (Esta línea no tiene efecto útil: compara la función con 1) Se deja tal cual.
         mostrar_tablero(tablero)  # Mostraría el tablero si la condición fuera verdadera (no lo será)    
-    una_solucion()
+    una_solucion() # Llama la función "una_solucion"
 
-elif seleccion == "2":
-    una_solucion()
-
+elif seleccion == "2": # Si "seleccion" es igual a 1 ejecuta lo que tiene en su interior.
+    una_solucion() # Llama la función "una_solucion".
 
 elif seleccion == "3":
-    print("Saliendo del programa...")
-
+    print("Saliendo del programa...") # Imprime el mensaje cuando "seleccion" es igual a 3
 
