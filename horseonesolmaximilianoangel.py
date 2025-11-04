@@ -115,15 +115,16 @@ def una_solucion():
 ### Main ###
 tablero = [[0 for _ in range(MAX)] for _ in range(MAX)] # Crea el tablero (matriz) inicial lleno de ceros
 
-if seleccion == "1":
+if seleccion == "1": # Si "seleccion" es igual a 1 ejecuta lo que tiene en su interior.
     if solucion == 1:  # (Esta línea no tiene efecto útil: compara la función con 1) Se deja tal cual.
         mostrar_tablero(tablero)  # Mostraría el tablero si la condición fuera verdadera (no lo será)    
     una_solucion() # Llama la función "una_solucion"
 
-elif seleccion == "2": # Si "seleccion" es igual a 1 ejecuta lo que tiene en su interior.
+elif seleccion == "2": # Si "seleccion" es igual a 2 ejecuta lo que tiene en su interior.
     una_solucion() # Llama la función "una_solucion".
 
 elif seleccion == "3":
     print("Saliendo del programa...") # Imprime el mensaje cuando "seleccion" es igual a 3
+
 
 
