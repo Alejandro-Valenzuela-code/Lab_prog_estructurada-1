@@ -31,10 +31,6 @@ def final(tablero):
     return True
 
 
-# -----------------------------------------------------------
-# Busca la posición del número "contador" en el tablero
-# (sirve para retroceder en el backtracking)
-# -----------------------------------------------------------
 def buscar_xy(tablero, contador):
     for i in range(tamaño_tablero):
         for j in range(tamaño_tablero):
@@ -42,18 +38,12 @@ def buscar_xy(tablero, contador):
                 return i, j
 
 
-# -----------------------------------------------------------
-# Imprime el tablero
-# -----------------------------------------------------------
 def mostrar_tablero(tablero):
     for fila in tablero:
         print(" ".join(str(c).rjust(2) for c in fila))
     print("")
 
 
-# -----------------------------------------------------------
-# Encuentra la primera solución del recorrido del caballo
-# -----------------------------------------------------------
 def solucion(tablero):
     candidato = 1
     solucion_encontrada = False
@@ -89,9 +79,6 @@ def solucion(tablero):
     return solucion_encontrada
 
 
-# -----------------------------------------------------------
-# Programa principal
-# -----------------------------------------------------------
 tablero = [[0 for _ in range(tamaño_tablero)] for _ in range(tamaño_tablero)]
 
 print("Tablero inicial:")
@@ -102,4 +89,5 @@ if solucion(tablero):
     mostrar_tablero(tablero)
 else:
     print("No hay solución.")
+
 
