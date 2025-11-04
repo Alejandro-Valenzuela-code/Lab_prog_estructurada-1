@@ -1,8 +1,3 @@
-# -----------------------------------------------------------
-# Problema del recorrido del caballo (Knight's Tour)
-# Versión: muestra la primera solución encontrada
-# -----------------------------------------------------------
-
 tamaño_tablero = 5  
 
 
@@ -107,3 +102,4 @@ if solucion(tablero):
     mostrar_tablero(tablero)
 else:
     print("No hay solución.")
+
