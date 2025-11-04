@@ -17,7 +17,7 @@ def resolver(tablero, x, y, paso, soluciones):
 
     # Si se llena el tablero se guarda una solucion
     if paso == tamaño_tablero * tamaño_tablero:
-        print(f"✅ Solución #{len(soluciones) + 1}:")
+        print(f" Solución #{len(soluciones) + 1}:")
         mostrar_tablero(tablero)
         soluciones.append([fila[:] for fila in tablero])
         tablero[x][y] = 0
@@ -38,3 +38,4 @@ soluciones = []
 resolver(tablero, 0, 0, 1, soluciones)
 
 print(f"Total de soluciones encontradas: {len(soluciones)}")
+
