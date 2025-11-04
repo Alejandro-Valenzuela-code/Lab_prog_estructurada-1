@@ -32,8 +32,8 @@ def comprobacion(y,x):
 MAX=int(input("Ingrese el tamaño de la tabla: ")) #tamaño tabla
 solucion=0
 soluciones=[] #se guardan las tablas con las soluciones
-for yIN in range(5):
-    for xIN in range(5):
+for yIN in range(MAX):
+    for xIN in range(MAX):
         tabla = [[0]*MAX for _ in range(MAX)]
         tabla[yIN][xIN] = 1
         espaciosOC = 1
