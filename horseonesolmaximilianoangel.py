@@ -12,7 +12,7 @@ while True:
  """)  # Imprime el menú de opciones
     
     seleccion = input("Ingrese la opción que desea usar:  \n> ")  # Lee la opción elegida por el usuario
-    if seleccion in ("1", "2", "3", "4"):  # Si la opción es 1, 2 o 3
+    if seleccion in ("1", "2", "3"):  # Si la opción es 1, 2 o 3
         break  # Sale del bucle y continúa
     else:
         print("Error, opción invalida.")  # Mensaje cuando la opción no es válida
@@ -125,4 +125,5 @@ elif seleccion == "2": # Si "seleccion" es igual a 1 ejecuta lo que tiene en su 
 
 elif seleccion == "3":
     print("Saliendo del programa...") # Imprime el mensaje cuando "seleccion" es igual a 3
+
 
