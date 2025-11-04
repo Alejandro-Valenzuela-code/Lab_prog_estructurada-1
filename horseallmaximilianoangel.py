@@ -104,7 +104,7 @@ def mostrar_tablero(tablero):
 ### Main ###
 tablero = [[0 for _ in range(MAX)] for _ in range(MAX)] # Crea el tablero (matriz) inicial lleno de ceros
 
-if seleccion == "1": # Si "seleccion" es igual a 3 ejecuta lo que esta en su interior.
+if seleccion == "1": # Si "seleccion" es igual a 1 ejecuta lo que esta en su interior.
     solucion(tablero) # Llama la función "solucion(tablero)", con parámetro "tablero".
     if todas_soluciones:
         # Se guardan las soluciones posibles en un archivo .txt llamado "Soluciones posibles (Problema del caballo)".
@@ -122,4 +122,5 @@ if seleccion == "1": # Si "seleccion" es igual a 3 ejecuta lo que esta en su int
 
 elif seleccion == "2":
     print("Saliendo del programa...") # Imprime el mensaje cuando "seleccion" es igual a 2.
+
 
