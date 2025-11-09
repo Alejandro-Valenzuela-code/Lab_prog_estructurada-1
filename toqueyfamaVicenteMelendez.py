@@ -1,4 +1,4 @@
-import random #importa libreria random 
+import random
 
 print('=====Toque o fama=====')
 opcion = input('¿Quieres que la maquina elija el numero? (s/n): ')
@@ -15,12 +15,11 @@ inten_max = 7
 intento = 1
 acertado = False
 
-#bucle principal, se repite hasta terminar los intentos
 while intento <= inten_max and not acertado:
     print(f'\nIntento {intento} de {inten_max}')
     jugador = input('Adivina el número: ')
 
-#comparacion de cada digito ingresado
+#comparacion
     for i in range(4):
         if jugador[i] == n_secreto[i]:
             print(jugador[i], 'Es Fama!')
@@ -32,11 +31,9 @@ while intento <= inten_max and not acertado:
     #verifica si jugador acertó        
     if jugador == n_secreto:
         print('Correcto!')
-        acertado = True
         break
     else:
         print('Incorrecto, intenta de nuevo' )
         intento += 1
-#si se agotaron los intentos imprime el numero secreto
 if not acertado:
     print('\nSe acabaron los intentos. el numero era: ', n_secreto)
